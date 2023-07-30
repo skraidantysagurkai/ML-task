@@ -8,3 +8,5 @@ This project consist of two main parts:
 The first part consist of 6 tasks which are described in the jupyter notebooks.
 
 **PLEASE RUN THE SETUP.PY BEFORE RUNNING ANYTHING ELSE**
+
+**Data : https://www.imf.org/en/Publications/WEO/weo-database/2020/October/download-entire-database**
