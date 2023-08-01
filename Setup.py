@@ -1,5 +1,7 @@
-# This script loads the IMF 2020 OCT data, fills missing values , converts datatypes, so to
-# make work with the data easier.
+"""
+    This script loads the IMF 2020 OCT data, fills missing values , converts datatypes, so to
+    make work with the data easier.
+"""
 import pandas as pd
 
 # Please change the data path to your path
