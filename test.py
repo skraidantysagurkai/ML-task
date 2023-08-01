@@ -17,7 +17,7 @@ class TestEndpoint(unittest.TestCase):
         # Initialize the shared_variable before any test method runs
         cls.url = 'http://127.0.0.1:5000'
 
-    def test_upper(self):
+    def test_successful(self):
         data = {'row1': {'LP': 22.203,
                          'Continent': 'Asia',
                          'NGSD_NGDP': '61.151',
@@ -32,35 +32,18 @@ class TestEndpoint(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
 
-    def test_isupper(self):
-        data = {'row1': {'LP': 22.203,
-                         'Continent': 'Asia',
-                         'NGSD_NGDP': '61.151',
-                         'LE': 2.41,
-                         'BCA': 1.481,
-                         'GGR_NGDP': 6.845,
-                         'LUR': 42.4,
-                         'GGSB_NPGDP': 6}
-                }
+    def test_unsuccessful(self):
+        data = 2  # This will throw an error in the Endpoint
         json_string = json.dumps(data)
         response = requests.post(self.url, json=json_string)
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 500)
 
-    def test_split(self):
-        data = {'row1': {'LP': 22.203,
-                         'Continent': 'Asia',
-                         'NGSD_NGDP': '61.151',
-                         'LE': 2.41,
-                         'BCA': 1.481,
-                         'GGR_NGDP': 6.845,
-                         'LUR': 42.4,
-                         'GGSB_NPGDP': 6}
-                }
-        json_string = json.dumps(data)
+    def test_not_json(self):
+        json_string = 'aaa'  # This will throw an error in the Endpoint
         response = requests.post(self.url, json=json_string)
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 500)
 
 
 if __name__ == '__main__':
