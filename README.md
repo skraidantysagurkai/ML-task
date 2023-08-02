@@ -13,6 +13,12 @@ creates a XGBRegressor model (with the help of Final_model.py)
 and predicts a countries GDP per capita. The test.py is just a unit test 
 that checks if the Endpoint is running properly.
 
+Features used in model, 'LP', 'Continent', NGSD_NGDP', 'LE', 'BCA', 'GGR_NGDP', 'LUR', 'GGSB_NPGDP'
+(Population (Millions), continent, Gross national savings (Percent of GDP), Employment (Millions),
+Current account balance (USD Billions), General government revenue (Percent of GDP),
+Unemployment rate (Percent of total labor force), General government structural balance (Percent of potential GDP))
+\
+***Note: When sending request to Endpoint the json string has to have these labels, order doesn't matter***
 ### Setup
 First please activate the conda environment with the line:
 \

@@ -28,6 +28,13 @@ def get_input_give_result():
     """
         This function the app route for receiving and sending back json messages to and from the client.
         We use a XGBRegressor model to do predictions that are sent in a json string back to the client
+
+        Sent data mus have features labeled 'LP', 'Continent', NGSD_NGDP', 'LE', 'BCA', 'GGR_NGDP', 'LUR', 'GGSB_NPGDP'
+        (Population (Millions), continent, Gross national savings (Percent of GDP), Employment (Millions),
+        Current account balance (USD Billions), General government revenue (Percent of GDP),
+        Unemployment rate (Percent of total labor force),
+        General government structural balance (Percent of potential GDP))
+
         Note : the function returns a json string with a list inside consisting of status_code and result
         Example: {'GPD_per_capita': [{'status_code': 200}, {'result': '1234.56'}]}
     """

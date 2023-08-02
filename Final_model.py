@@ -1,5 +1,9 @@
 """
     This file is made to house the create_model and make_prediction functions.
+    Features used 'LP', 'Continent', NGSD_NGDP', 'LE', 'BCA', 'GGR_NGDP', 'LUR', 'GGSB_NPGDP'
+    (Population (Millions), continent, Gross national savings (Percent of GDP), Employment (Millions),
+    Current account balance (USD Billions), General government revenue (Percent of GDP),
+    Unemployment rate (Percent of total labor force), General government structural balance (Percent of potential GDP))
 """
 import pandas as pd
 from sklearn.pipeline import Pipeline
@@ -221,6 +225,11 @@ def create_model():
     imf_data = pd.read_pickle("IMF_DATA.pkl")
 
     def remove_predictions(row):
+        """
+            Removes predictions based on Estimates Start After column.
+        :param row:
+        :return: row
+        """
         DATA_END_DATE = 2025
         DATA_START_DATE = 1980
 
@@ -233,8 +242,14 @@ def create_model():
         return row
 
     def country_to_continent(row):
+        """
+            Maps countries to continents based on COUNTRY_CONTINENT_DIC.
+        :param row:
+        :return: row
+        """
         row['Continent'] = COUNTRY_CONTINENT_DIC.get(row['Country'], None)
         return row
+
     imf_data = imf_data.apply(remove_predictions, axis=1)
 
     # Fetching the GDP per capita data denoted in US dollars
